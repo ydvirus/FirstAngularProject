@@ -216,6 +216,6 @@ export class EmployeeService {
       
     }
 
-  ]
+  ];
   }
 }

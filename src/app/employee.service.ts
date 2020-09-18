@@ -19,8 +19,8 @@ export class EmployeeService {
 //     return this.http.get<IEmployee[]>(url);
 //   }
 
-  getEmployee() {
-    [
+  getEmployees() {
+    return [
    
     {
       "info":{"id":2, 

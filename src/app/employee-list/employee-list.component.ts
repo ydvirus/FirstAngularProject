@@ -149,6 +149,8 @@ export class EmployeeListComponent implements OnInit {
   constructor(private _employeeService : EmployeeService, private router: Router){}
 
   ngOnInit(): void {
+    console.log("reaching onInit of emplist");
+    
     this._employeeService.getEmployees().subscribe(data => {
       console.log(data);
       this.employees=data;

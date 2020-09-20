@@ -8,14 +8,14 @@ import { Observable } from 'rxjs';
 })
 export class EmployeeService {
   employees=[];
-  private _url : string ="../assets/employees.json";
+  private _url : string ="https://github.com/ydvirus/FirstAngularProject/src/assets/employees.json";
   constructor(private http : HttpClient) {
     // this.getEmployees().subscribe(data => this.employees=data);
     // console.log(this.employees);
    }
 
-  getEmployees() : Observable<IEmployee[]>{
+  getEmployees() : Observable<IEmployee>{
     const url =this._url;
-    return this.http.get<IEmployee[]>(url);
+    return this.http.get<IEmployee>(url);
   }
 }

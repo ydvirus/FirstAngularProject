@@ -213,15 +213,22 @@ export class EmployeeResumeComponent implements OnInit {
       this.empId=id;
     });
 
-    this._employeeService.getEmployees().subscribe(data => {
-      this.employees =data;
-      console.log(this.employees);
-      this.employees.forEach(emp => {
-      if(this.empId === emp.info.id)
-      {this.employee = emp;
-      this.employeeInfo = emp.info;}
-    });
-    });
+    this.employees =this._employeeService.getEmployees();
+    this.employees.forEach(emp => {
+         if(this.empId === emp.info.id)
+         {this.employee = emp;
+         this.employeeInfo = emp.info;}
+       });
+
+    // this._employeeService.getEmployees().subscribe(data => {
+    //   this.employees =data;
+    //   console.log(this.employees);
+    //   this.employees.forEach(emp => {
+    //   if(this.empId === emp.info.id)
+    //   {this.employee = emp;
+    //   this.employeeInfo = emp.info;}
+    // });
+    // });
     
   }
   goBack(){

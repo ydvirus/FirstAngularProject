@@ -149,14 +149,19 @@ export class EmployeeListComponent implements OnInit {
   constructor(private _employeeService : EmployeeService, private router: Router){}
 
   ngOnInit(): void {
-    console.log("reaching onInit of emplist");
     
-    this._employeeService.getEmployees().subscribe(data => {
-      console.log(data);
-      this.employees=data;
-      this.employees.forEach(emp => {
-        this.employeename.push({id: emp.info.id, firstName:emp.info.firstName, lastName:emp.info.lastName});
-      });
+    
+    this.employees =this._employeeService.getEmployees();
+    this.employees.forEach(emp => {
+         this.employeename.push({id: emp.info.id, firstName:emp.info.firstName, lastName:emp.info.lastName});
+       });
+
+    // this._employeeService.getEmployees().subscribe(data => {
+    //   console.log(data);
+    //   this.employees=data;
+    //   this.employees.forEach(emp => {
+    //     this.employeename.push({id: emp.info.id, firstName:emp.info.firstName, lastName:emp.info.lastName});
+    //   });
       
       
       //this.empNamesSortedById =sortById(this.employeename);
@@ -171,7 +176,7 @@ export class EmployeeListComponent implements OnInit {
       });
       console.log(this.employeename);
 
-    });
+   
     //console.log("Hi "+this.employees[2]);
     // this.employees.forEach(empl => {
     //    console.log(empl.id);

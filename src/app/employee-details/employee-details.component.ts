@@ -196,21 +196,6 @@ export class EmployeeDetailsComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-
-    this._employeeService.getEmployees().subscribe(data =>{ 
-      this.employees =data;
-      console.log(this.employees);
-      this.employees.forEach(emp => {
-        if (this.empId === emp.info.id) {
-          this.employeeInfo=emp.info;
-          this.image = emp.image;
-        }
-      });
-    });
-    console.log('reached here');
-    //console.log(this.employees[0].firstName);
-
-    console.log('reached here');
     
     this.activatedRoute.paramMap.subscribe((params: ParamMap) =>{
       let id = parseInt(params.get('id'));
@@ -218,6 +203,27 @@ export class EmployeeDetailsComponent implements OnInit {
       
     }
     );
+    
+    
+    this.employees =this._employeeService.getEmployees();
+    this.employees.forEach(emp => {
+        if (this.empId === emp.info.id) {
+          this.employeeInfo=emp.info;
+          this.image = emp.image;
+        }
+      });
+
+    // this._employeeService.getEmployees().subscribe(data =>{ 
+    //   this.employees =data;
+    //   console.log(this.employees);
+    //   this.employees.forEach(emp => {
+    //     if (this.empId === emp.info.id) {
+    //       this.employeeInfo=emp.info;
+    //       this.image = emp.image;
+    //     }
+    //   });
+    // });
+    
     
     
     //Not using snapshot method

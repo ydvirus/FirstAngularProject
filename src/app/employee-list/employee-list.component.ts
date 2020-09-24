@@ -142,7 +142,7 @@ import { Employeenames } from "../employeenames";
 })
 export class EmployeeListComponent implements OnInit {
 
-  public employees  = [];
+  public employees:any  = [];
   public employeename: Employeenames[] = []; 
   public searchValue: string;
   public empNamesSortedById;

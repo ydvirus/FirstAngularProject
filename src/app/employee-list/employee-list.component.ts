@@ -152,9 +152,11 @@ export class EmployeeListComponent implements OnInit {
     
     
     this.employees =this._employeeService.getEmployees();
+    console.log(this.employees);
     this.employees.forEach(emp => {
          this.employeename.push({id: emp.info.id, firstName:emp.info.firstName, lastName:emp.info.lastName});
-       });
+         console.log(this.employeename);
+    });
 
     // this._employeeService.getEmployees().subscribe(data => {
     //   console.log(data);

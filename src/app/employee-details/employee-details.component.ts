@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { EmployeeService } from '../employee.service';
 
+import employeeList from '../_files/employees.json';
 
 @Component({
   selector: 'app-employee-details',
@@ -187,7 +188,7 @@ import { EmployeeService } from '../employee.service';
 })
 export class EmployeeDetailsComponent implements OnInit {
 
-  public employees =[];
+  public employees:any[] = employeeList;
   public empId;
   public employeeInfo=null;
   public image:string;
@@ -205,7 +206,7 @@ export class EmployeeDetailsComponent implements OnInit {
     );
     
     
-    this.employees =this._employeeService.getEmployees();
+    //this.employees =this._employeeService.getEmployees();
     this.employees.forEach(emp => {
         if (this.empId === emp.info.id) {
           this.employeeInfo=emp.info;

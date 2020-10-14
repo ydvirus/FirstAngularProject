@@ -3,6 +3,7 @@ import { EmployeeService } from '../employee.service';
 import {Router} from '@angular/router';
 import {IEmployee} from '../employee';
 import { Employeenames } from "../employeenames";
+import employeeList from '../_files/employees.json';
 
 @Component({
   selector: 'app-employee-list',
@@ -142,7 +143,7 @@ import { Employeenames } from "../employeenames";
 })
 export class EmployeeListComponent implements OnInit {
 
-  public employees:any  = [];
+  public employees:any[] = employeeList;
   public employeename: Employeenames[] = []; 
   public searchValue: string;
   public empNamesSortedById;
@@ -151,7 +152,7 @@ export class EmployeeListComponent implements OnInit {
   ngOnInit(): void {
     
     
-    this.employees =this._employeeService.getEmployees();
+    //this.employees =this._employeeService.getEmployees();
     this.employees.forEach(emp => {
          this.employeename.push({id: emp.info.id, firstName:emp.info.firstName, lastName:emp.info.lastName});
        });
